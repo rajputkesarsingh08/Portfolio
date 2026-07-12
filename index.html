@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rajput Kesarsingh Gulabsingh | Portfolio</title>
+
+            <!-- Bootstrap 5 -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+
+            <!-- Font Awesome -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+            <!-- AOS scroll animations -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+            <!-- Google Font -->
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <style>
+            html {
+                scrollbar-width: none;
+            }
+
+            html::-webkit-scrollbar {
+                display: none;
+            }
+
+            :root{
+                --dark-green:#1c2b22;
+                --mid-green:#2e4a37;
+                --accent-green:#336c47;
+                --accent-green-hover:#3e965d;
+                --cream:#f7f7f2;
+                --text-muted:#6b7a71;
+            }
+
+            * { 
+                box-sizing:border-box; 
+            }
+
+            body{
+                font-family:'Poppins',sans-serif;
+                background:var(--cream);
+                color:#2b2b2b;
+                margin:0;
+                scroll-behavior:smooth;
+            }
+
+            a{ 
+                text-decoration:none; 
+            }
+
+            /* ---------- NAVBAR ---------- */
+            .navbar-custom{
+                position:fixed;
+                top:0; left:0; right:0;
+                z-index:1000;
+                padding:20px 80px;
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+                background:rgba(254, 254, 254, 0);
+                backdrop-filter:blur(6px);
+                transition:background .3s ease;
+            }
+            
+            .navbar-custom.scrolled{ 
+                background:rgba(20, 32, 24, 0.732); 
+            }
+            
+            .navbar-brand-custom{
+                color:#fff;
+                font-weight:700;
+                letter-spacing:2px;
+                font-size:1.05rem;
+                text-transform:uppercase;
+            }
+  
+            .nav-links a{
+                color:#f0f0eb;
+                margin-left:28px;
+                font-size:.85rem;
+                font-weight:500;
+                letter-spacing:1px;
+                text-transform:uppercase;
+                opacity:.85;
+                transition:opacity .2s ease, color .2s ease;
+            }
+
+            .nav-links a:hover{ 
+                opacity:1; 
+                color:#9fe0b4; 
+            }
+
+            .nav-toggle{ 
+                display:none; 
+                color:#fff; 
+                font-size:1.4rem; 
+                background:none; 
+                border:none; 
+            }
+
+            @media (max-width:900px){
+                .navbar-custom{ padding:16px 24px; 
+            }
+
+            .nav-links{
+                display:none;
+                position:absolute;
+                top:64px; left:0; right:0;
+                background:rgba(15,25,18,0.97);
+                flex-direction:column;
+                padding:20px 30px;
+            }
+    
+            .nav-links.open{ 
+                display:flex; 
+            }
+    
+            .nav-links a{ 
+                margin:10px 0; 
+            }
+    
+            .nav-toggle{ 
+                display:block; 
+            }
+            }
+
+            /* ---------- HERO ---------- */
+            .hero{
+                position:relative;
+                min-height:100vh;
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+                text-align:center;
+                padding:140px 20px 100px;
+                background:linear-gradient(160deg, rgba(20,40,28,0.55),rgba(15,32,22,0.55)),url('lsd_iima_cover.jpg');
+                background-size:cover;
+                background-position:center;
+                overflow:visible;
+            }
+  
+            .hero::before{
+                content:"";
+                position:absolute; 
+                inset:0;
+                background-image:
+                    repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0px, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 60px),
+                    repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0px, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 60px);
+                opacity:.25;
+            }
+            .hero-content{ 
+                position:relative; 
+                z-index:2; 
+                    /* content: "";
+                    border: 15px solid rgba(55, 140, 63, 0.6);
+                    border-radius: 50%;
+                    height: 180px;
+                    width: 180px;
+                    position: absolute;
+                    left: 0;
+                    -webkit-animation: pulsate 1.6s ease-out;
+                    animation: pulsate 1.6s ease-out;
+                    -webkit-animation-iteration-count : infinite;
+                    animation-iteration-count: infinite;
+                    opacity: 0.0;
+                    z-index: 99; */
+            }
+
+            .avatar-circle{
+                width:150px; height:150px;
+                border-radius:50%;
+                margin:0 auto 26px;
+                border:0px solid rgba(255,255,255,0.9);
+                box-shadow:
+                    0 0 0 6px rgba(63,133,87,0.35),
+                    0 0 35px 10px rgba(159,224,180,0.55),
+                    0 10px 30px rgba(0,0,0,0.35);
+                overflow:hidden;
+                animation: glow-pulse 1.8s ease-in-out infinite;   
+            }
+
+            .avatar-circle img{
+                width:100%; height:100%;
+                object-fit:cover;
+                display:block;
+            }
+  
+            @keyframes glow-pulse{
+                0%, 100%{ 
+                    box-shadow:0 0 0 6px rgba(63,133,87,0.35), 0 0 35px 10px rgba(159,224,180,0.55), 0 10px 30px rgba(0,0,0,0.35); 
+                }
+                50%{ 
+                    box-shadow:0 0 0 8px rgba(63,133,87,0.45), 0 0 55px 18px rgba(159,224,180,0.75), 0 10px 30px rgba(0,0,0,0.35); 
+                }
+            }
+
+            .hero h1{
+                color:#fff;
+                font-weight:700;
+                font-size:2.8rem;
+                margin-bottom:8px;
+                letter-spacing:1px;
+            }
+            
+            .hero p.subtitle{
+                color:#cfe9d8;
+                text-transform:uppercase;
+                letter-spacing:3px;
+                font-size:.9rem;
+                font-weight:600;
+                margin-bottom:34px;
+            }
+
+            .btn-hero{
+                background:var(--accent-green);
+                color:#fff;
+                border:none;
+                padding:12px 28px;
+                margin:0 8px 10px;
+                border-radius:4px;
+                font-weight:500;
+                letter-spacing:.5px;
+                transition:background .25s ease, transform .2s ease;
+                display:inline-block;
+            }
+  
+            .btn-hero:hover{ 
+                background:var(--accent-green-hover); color:#fff; transform:translateY(-2px); 
+            }
+
+            .btn-hero.outline{
+                background:transparent;
+                border:1px solid rgba(255,255,255,0.5);
+            }
+
+            .btn-hero.outline:hover{ 
+                background:rgba(255,255,255,0.1); 
+            }
+
+            .social-row{
+                position:absolute;
+                left:50%;
+                bottom:0;
+                transform:translate(-50%, 50%);
+                z-index:6;
+                white-space:nowrap;
+            }
+  
+            .social-row a{
+                display:inline-flex;
+                align-items:center; justify-content:center;
+                width:52px; height:52px;
+                border-radius:50%;
+                background:#8f9a93;
+                color:#fff;
+                margin:0 6px;
+                font-size:1.15rem;
+                box-shadow:0 6px 16px rgba(0,0,0,0.25);
+                transition:background .25s ease, transform .2s ease;
+            }
+  
+            .social-row a:hover{ 
+                background:var(--accent-green); transform:translateY(-3px); 
+            }
+
+            @media (max-width:600px){
+                .social-row a{ width:42px; height:42px; font-size:1rem; margin:0 4px; }
+            }
+
+            /* ---------- SECTION GENERIC ---------- */
+            .section{ 
+                padding:90px 20px; 
+            }
+
+            .section-title{
+                text-align:center;
+                font-weight:700;
+                font-size:2rem;
+                margin-bottom:12px;
+                color:#1c2b22;
+            }
+  
+            .section-underline{
+                width:60px; height:3px;
+                background:var(--accent-green);
+                margin:0 auto 55px;
+                border-radius:2px;
+            }
+  
+            .section-alt{ 
+                background:#eef2ee; 
+            }
+  
+            #highlights{ 
+                padding-top:130px; 
+            }
+
+  
+            /* ---------- HIGHLIGHT / COMING SOON CARDS ---------- */
+            .highlight-card{
+                background:#fff;
+                border-radius:10px;
+                padding:34px 26px;
+                height:100%;
+                box-shadow:0 6px 24px rgba(0,0,0,0.06);
+                border-top:4px solid var(--accent-green);
+                transition:transform .25s ease, box-shadow .25s ease;
+                text-align:center;
+            }
+  .highlight-card:hover{ transform:translateY(-6px); box-shadow:0 14px 30px rgba(0,0,0,0.1); }
+  .highlight-card .icon-wrap{
+    width:64px; height:64px;
+    border-radius:50%;
+    background:#eaf3ec;
+    color:var(--accent-green);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.6rem;
+    margin:0 auto 20px;
+  }
+  .highlight-card h5{ font-weight:600; margin-bottom:10px; }
+  .badge-soon{
+    display:inline-block;
+    background:#fff3cd;
+    color:#8a6d1d;
+    font-size:.72rem;
+    font-weight:600;
+    letter-spacing:.5px;
+    padding:4px 12px;
+    border-radius:20px;
+    margin-top:14px;
+    text-transform:uppercase;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skill-pill{
+    display:inline-block;
+    background:#fff;
+    border:1px solid #dfe7e1;
+    color:#2b2b2b;
+    padding:9px 18px;
+    border-radius:30px;
+    margin:6px;
+    font-size:.88rem;
+    font-weight:500;
+    box-shadow:0 2px 8px rgba(0,0,0,0.03);
+  }
+  .skill-pill i{ color:var(--accent-green); margin-right:8px; }
+
+  .info-card{
+    background:#fff;
+    border-radius:10px;
+    padding:30px;
+    height:100%;
+    box-shadow:0 6px 24px rgba(0,0,0,0.06);
+  }
+  .info-card h5{
+    font-weight:600;
+    margin-bottom:20px;
+    color:var(--dark-green);
+  }
+  .info-card ul{ padding-left:0; list-style:none; margin:0; }
+  .info-card ul li{
+    padding:8px 0;
+    border-bottom:1px dashed #e3e8e4;
+    font-size:.92rem;
+  }
+  .info-card ul li:last-child{ border-bottom:none; }
+  .info-card ul li i{ color:var(--accent-green); width:20px; }
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{ position:relative; max-width:800px; margin:0 auto; }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:24px; top:0; bottom:0;
+    width:2px;
+    background:#d5ddd7;
+  }
+  @media (min-width:768px){
+    .timeline::before{ left:50%; transform:translateX(-1px); }
+  }
+  .timeline-item{
+    position:relative;
+    margin-bottom:44px;
+    padding-left:60px;
+  }
+  @media (min-width:768px){
+    .timeline-item{ padding-left:0; width:50%; }
+    .timeline-item:nth-child(odd){ margin-left:0; padding-right:50px; text-align:right; }
+    .timeline-item:nth-child(even){ margin-left:50%; padding-left:50px; }
+  }
+  .timeline-dot{
+    position:absolute;
+    left:14px; top:4px;
+    width:22px; height:22px;
+    border-radius:50%;
+    background:var(--accent-green);
+    border:4px solid #fff;
+    box-shadow:0 0 0 2px var(--accent-green);
+  }
+  @media (min-width:768px){
+    .timeline-item:nth-child(odd) .timeline-dot{ left:auto; right:-11px; }
+    .timeline-item:nth-child(even) .timeline-dot{ left:-11px; }
+  }
+  .timeline-card{
+    background:#fff;
+    border-radius:8px;
+    padding:20px 24px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.06);
+  }
+  .timeline-year{
+    display:inline-block;
+    background:var(--accent-green);
+    color:#fff;
+    font-size:.75rem;
+    font-weight:600;
+    padding:3px 12px;
+    border-radius:20px;
+    margin-bottom:10px;
+  }
+  .timeline-card h5{ font-weight:600; margin-bottom:4px; font-size:1rem; }
+  .timeline-card p{ margin:0; font-size:.86rem; color:var(--text-muted); }
+
+  /* ---------- EXPERIENCE COMING SOON ---------- */
+  .experience-placeholder{
+    max-width:700px;
+    margin:0 auto;
+    background:#fff;
+    border-radius:10px;
+    padding:50px 30px;
+    text-align:center;
+    box-shadow:0 6px 24px rgba(0,0,0,0.06);
+    border-left:4px solid var(--accent-green);
+  }
+  .experience-placeholder i{ font-size:2.4rem; color:var(--accent-green); margin-bottom:18px; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-wrap{
+    background:var(--dark-green);
+    border-radius:14px;
+    overflow:hidden;
+    max-width:1000px;
+    margin:0 auto;
+  }
+  .contact-info{ padding:50px 40px; color:#fff; }
+  .contact-info h3{ font-weight:700; margin-bottom:10px; }
+  .contact-info p.lead-text{ color:#c7d8cc; font-size:.92rem; margin-bottom:30px; }
+  .contact-info ul{ list-style:none; padding:0; }
+  .contact-info ul li{
+    display:flex; align-items:center;
+    margin-bottom:18px; font-size:.92rem;
+  }
+  .contact-info ul li i{
+    width:42px; height:42px;
+    background:rgba(255,255,255,0.1);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    margin-right:14px;
+    color:#9fe0b4;
+  }
+  .contact-map{ min-height:100%; }
+  .contact-map iframe{ width:100%; height:100%; min-height:340px; border:0; display:block; }
+
+  footer{
+    background:#111c15;
+    color:#9fb0a4;
+    text-align:center;
+    padding:28px 20px;
+    font-size:.85rem;
+  }
+  footer .footer-name{ color:#fff; font-weight:600; }
+  footer .footer-socials a{
+    color:#9fb0a4; margin:0 8px; font-size:1rem;
+  }
+  footer .footer-socials a:hover{ color:#9fe0b4; }
+</style>
+</head>
+
+
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar-custom" id="mainNav">
+        <a href="#top" class="navbar-brand-custom">Kesarsingh Rajput</a>
+        <button class="nav-toggle" id="navToggle"><i class="fa-solid fa-bars"></i></button>
+        <div class="nav-links" id="navLinks">
+            <a href="#top">Home</a>
+            <a href="#highlights">Highlights</a>
+            <a href="#video-highlights">Research</a>
+            <a href="#skills">Skills</a>
+            <a href="#timeline">Education</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="avatar-circle"><img src="1780688886057.jpg" alt="Rajput Kesarsingh Gulabsingh"></div>
+            <h1>Rajput Kesarsingh Gulabsingh</h1>
+            <p class="subtitle">Computer Science Engineering (AI &amp; ML) &middot; Student</p>
+            <div>
+                <a href="mailto:rajputkesharsingh104@gmail.com" class="btn-hero">Contact Me</a>
+                <a href="https://drive.google.com/file/d/1IliXrKMYS9tSa7CzvRoSmdBd0PeHSa7_/view?usp=drive_link" class="btn-hero outline" id="resumeBtn">Resume</a>
+                <a href="https://www.linkedin.com/in/rajputkesarsingh08" class="btn-hero outline" id="portfolioBtn">Portfolio</a>
+            </div>
+        </div>
+
+
+        <!-- Social links row, straddling the border between the hero and the section below (like the reference site) -->
+        <div class="social-row">
+            <a href="https://www.linkedin.com/in/rajputkesarsingh08" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="mailto:rajputkesharsingh104@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="tel:+919824877166" title="Phone"><i class="fa-solid fa-phone"></i></a>
+    
+            <!-- TODO: paste your Instagram profile URL below -->
+            <a href="https://www.instagram.com/rajputkesarsingh08" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            
+            
+            <!-- <a href="#" target="_blank" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a> -->
+           
+            <!-- TODO: paste your GitHub profile URL below -->
+            <a href="https://github.com/rajputkesarsingh08" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+    </section>
+
+
+
+
+    <!-- HIGHLIGHTS / PROJECTS -->
+    <section class="section" id="highlights">
+        <h2 class="section-title" data-aos="fade-up">Project Highlights</h2>
+        <div class="section-underline" data-aos="fade-up"></div>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="highlight-card">
+                        <div class="icon-wrap"><i class="fa-solid fa-motorcycle"></i></div>
+                        <h5>Automatic Bike Stand</h5>
+                        <p style="font-size:.86rem;color:var(--text-muted);">College team project &mdash; a smart automatic bike stand using basic electronics and programming logic to improve vehicle parking safety and convenience.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <div class="icon-wrap"><i class="fa-solid fa-brain"></i></div>
+                        <h5>AI &amp; ML Project</h5>
+                        <p style="font-size:.86rem;color:var(--text-muted);">A future project applying machine learning concepts to a real-world problem.</p>
+                        <span class="badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="highlight-card">
+                        <div class="icon-wrap"><i class="fa-solid fa-code"></i></div>
+                        <h5>Web Development Project</h5>
+                        <p style="font-size:.86rem;color:var(--text-muted);">A hands-on web project showcasing HTML, CSS and JavaScript skills.</p>
+                        <span class="badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="highlight-card">
+                        <div class="icon-wrap"><i class="fa-solid fa-microchip"></i></div>
+                        <h5>Python Project</h5>
+                        <p style="font-size:.86rem;color:var(--text-muted);">An upcoming project built around core Python and data science concepts.</p>
+                        <span class="badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+<!-- VIDEO / RESEARCH HIGHLIGHTS (YouTube demos) -->
+<section class="section section-alt" id="video-highlights">
+  <h2 class="section-title" data-aos="fade-up">Research Highlights</h2>
+  <div class="section-underline" data-aos="fade-up"></div>
+  <div class="container">
+
+    <!--
+      HOW TO ADD YOUR YOUTUBE VIDEOS:
+      Below are 4 ready-made video cards, commented out for now.
+      1) Remove the "Coming Soon" placeholder block underneath this comment.
+      2) Uncomment the 4 cards below.
+      3) Replace YOUR_VIDEO_ID_1 / 2 / 3 / 4 with your actual YouTube video IDs
+         (the part after "watch?v=" in a YouTube URL) and update each title/description.
+
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="zoom-in">
+          <div class="highlight-card" style="text-align:left;">
+            <div class="ratio ratio-16x9" style="border-radius:8px;overflow:hidden;margin-bottom:16px;">
+              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" title="Project 1" allowfullscreen></iframe>
+            </div>
+            <h5>Project Title 1</h5>
+            <p style="font-size:.86rem;color:var(--text-muted);">Short description of this project video.</p>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
+          <div class="highlight-card" style="text-align:left;">
+            <div class="ratio ratio-16x9" style="border-radius:8px;overflow:hidden;margin-bottom:16px;">
+              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" title="Project 2" allowfullscreen></iframe>
+            </div>
+            <h5>Project Title 2</h5>
+            <p style="font-size:.86rem;color:var(--text-muted);">Short description of this project video.</p>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="zoom-in">
+          <div class="highlight-card" style="text-align:left;">
+            <div class="ratio ratio-16x9" style="border-radius:8px;overflow:hidden;margin-bottom:16px;">
+              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" title="Project 3" allowfullscreen></iframe>
+            </div>
+            <h5>Project Title 3</h5>
+            <p style="font-size:.86rem;color:var(--text-muted);">Short description of this project video.</p>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
+          <div class="highlight-card" style="text-align:left;">
+            <div class="ratio ratio-16x9" style="border-radius:8px;overflow:hidden;margin-bottom:16px;">
+              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4" title="Project 4" allowfullscreen></iframe>
+            </div>
+            <h5>Project Title 4</h5>
+            <p style="font-size:.86rem;color:var(--text-muted);">Short description of this project video.</p>
+          </div>
+        </div>
+      </div>
+    -->
+
+    <div class="experience-placeholder" data-aos="zoom-in">
+      <i class="fa-brands fa-youtube"></i>
+      <h5 style="font-weight:600;">Coming Soon</h5>
+      <p style="color:var(--text-muted);margin:0;">
+        Demo videos of my projects will be added here soon. Stay tuned!
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS & CERTIFICATIONS -->
+<section class="section section-alt" id="skills">
+  <h2 class="section-title" data-aos="fade-up">Skills &amp; Certifications</h2>
+  <div class="section-underline" data-aos="fade-up"></div>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-right">
+        <div class="info-card">
+          <h5><i class="fa-solid fa-laptop-code"></i>&nbsp; Technical Skills</h5>
+          <div>
+            <span class="skill-pill"><i class="fa-brands fa-python"></i>Python</span>
+            <span class="skill-pill"><i class="fa-solid fa-c"></i>C</span>
+            <span class="skill-pill"><i class="fa-brands fa-js"></i>JavaScript</span>
+            <span class="skill-pill"><i class="fa-brands fa-html5"></i>HTML</span>
+            <span class="skill-pill"><i class="fa-brands fa-css3-alt"></i>CSS</span>
+            <span class="skill-pill"><i class="fa-solid fa-cubes"></i>OOP</span>
+          </div>
+          <hr style="margin:22px 0;border-color:#e6ebe7;">
+          <div>
+            <span class="skill-pill"><i class="fa-solid fa-users"></i>Teamwork</span>
+            <span class="skill-pill"><i class="fa-solid fa-puzzle-piece"></i>Problem Solving</span>
+            <span class="skill-pill"><i class="fa-solid fa-comments"></i>Communication</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6" data-aos="fade-left">
+        <div class="info-card">
+          <h5><i class="fa-solid fa-certificate"></i>&nbsp; Certifications &amp; Achievements</h5>
+          <ul>
+            <li><i class="fa-solid fa-award"></i> Python for Data Science</li>
+            <li><i class="fa-solid fa-award"></i> 20+ certificates earned</li>
+            <li><i class="fa-solid fa-award"></i> Strong academic record &mdash; 88% (Class X), 85% (Class XII)</li>
+            <li><i class="fa-solid fa-award"></i> Team participation in college-level engineering project</li>
+          </ul>
+          <h5 style="margin-top:26px;"><i class="fa-solid fa-globe"></i>&nbsp; Languages Known</h5>
+          <div>
+            <span class="skill-pill">Gujarati</span>
+            <span class="skill-pill">Hindi</span>
+            <span class="skill-pill">English</span>
+            <span class="skill-pill">Marwari</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION TIMELINE -->
+<section class="section" id="timeline">
+  <h2 class="section-title" data-aos="fade-up">Education Timeline</h2>
+  <div class="section-underline" data-aos="fade-up"></div>
+  <div class="container">
+    <div class="timeline">
+
+      <div class="timeline-item" data-aos="fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-year">2024 &ndash; 2028 (Pursuing)</span>
+          <h5>B.E. in Computer Science &amp; Engineering (AI &amp; ML)</h5>
+          <!-- <p>SAL Institute of Technology &amp; Engineering Research, Ahmedabad &mdash; affiliated with Gujarat Technological University (GTU)</p> -->
+           <p>Gujarat Technological University (GTU)</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-year">2023 &ndash; 2024</span>
+          <h5>Higher Secondary Education (Class XII) </h5>
+          <span>Grade : 85%</span>
+          <p>Sheth R. T. Agrawal Hindi Higher Secondary School, GSEB </p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-year">2021 &ndash; 2022</span>
+          <h5>Secondary Education (Class X)</h5>
+          <span>Grade : 88%</span>
+          <p>Sheth R. T. Agrawal Hindi High School, GSEB </p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-year">2016 &ndash; 2017</span>
+          <h5>Class V [RBSE Board]</h5>
+          <span>Grade : 85%</span>
+          <p>Swaminarayan Vidya Mandir, RBSE</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE (COMING SOON) -->
+<section class="section section-alt" id="experience">
+  <h2 class="section-title" data-aos="fade-up">Experience</h2>
+  <div class="section-underline" data-aos="fade-up"></div>
+  <div class="container">
+    <div class="experience-placeholder" data-aos="zoom-in">
+      <i class="fa-solid fa-briefcase"></i>
+      <h5 style="font-weight:600;">Coming Soon</h5>
+      <p style="color:var(--text-muted);margin:0;">
+        Currently focused on coursework, certifications, and hands-on projects.
+        Internship and work experience will be added here soon &mdash; check back later!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
+  <div class="section-underline" data-aos="fade-up"></div>
+  <div class="container">
+    <div class="contact-wrap" data-aos="fade-up">
+      <div class="row g-0">
+        <div class="col-md-6">
+          <div class="contact-info">
+            <h3>Let's Connect</h3>
+            <p class="lead-text">Feel free to reach out for opportunities, collaborations, or just to say hello.</p>
+            <ul>
+                <a href="https://maps.google.com/?cid=5750776840915477782&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=en-US&source=embed" target="_blank" rel="noopener noreferrer" style="color: white; title="View on Google Maps">
+                    <li><i class="fa-solid fa-location-dot"></i> Ahmedabad, Gujarat, India</li>
+                </a>
+
+                <a href="#" style="color: white;">
+                    <li><i class="fa-solid fa-phone"></i> +91 98*** ***66</li>
+                </a>
+
+                <a href="mailto:rajputkesharsingh104@gmail.com" style="color: white;">
+                    <li><i class="fa-solid fa-envelope"></i> rajputkesharsingh104@gmail.com</li>
+                </a>
+                <a href="https://www.linkedin.com/in/rajputkesarsingh08" target="_blank" rel="noopener noreferrer" style="color: white;">
+                    <li><i class="fa-brands fa-linkedin-in"></i> linkedin.com/in/rajputkesarsingh08</li>
+                </a>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 contact-map">
+          <iframe src="https://maps.google.com/maps?q=Ahmedabad,Gujarat&t=&z=11&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- other
+    <section class="section" id="highlights">
+        <h2 class="section-title" data-aos="fade-up">Spotify/Linkedin/Instagram</h2>
+        <div class="section-underline" data-aos="fade-up"></div>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7428156984505327616?collapsed=1" height="627" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                </div>
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DaGZcKLzIck/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/DaGZcKLzIck/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/DaGZcKLzIck/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Indar Singh Rajput (@itzz_indar_rajput)</a></p></div></blockquote>
+                    <script async src="//www.instagram.com/embed.js"></script>
+                </div>
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="0">
+                   <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5Yz7JdvNfGBsjaYhjMlXgv?utm_source=generator&si=a55eed0b15474c5e" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-socials" style="margin-bottom:10px;">
+    <a href="https://www.linkedin.com/in/rajputkesarsingh08" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="mailto:rajputkesharsingh104@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    <a href="tel:+919824877166"><i class="fa-solid fa-phone"></i></a>
+  </div>
+  &copy; <span id="year"></span> <span class="footer-name">Rajput Kesarsingh Gulabsingh</span>. All rights reserved.
+  <div style="margin-top:6px;opacity:.7;font-size:.78rem;">Design by RK</div>
+</footer>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script>
+            AOS.init({ duration: 800, once: true, offset: 60 });
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Navbar background on scroll
+            const nav = document.getElementById('mainNav');
+            window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');});
+
+
+            // Mobile nav toggle
+            const navToggle = document.getElementById('navToggle');
+            const navLinks = document.getElementById('navLinks');
+            navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+            navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));});
+
+
+            // Resume / Portfolio buttons - placeholders until real links are added
+            // document.getElementById('resumeBtn').addEventListener('click', function(e){
+            // e.preventDefault();
+            // alert('Add your resume PDF link here once it is ready!');});
+            // document.getElementById('portfolioBtn').addEventListener('click', function(e){
+            // e.preventDefault();
+            // alert('Add your portfolio link here once it is ready!');});
+        </script>
+
+    </body>
+</html>
